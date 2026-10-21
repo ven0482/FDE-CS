@@ -1,0 +1,39 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run FastAPI backend",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"uvicorn",
+				"api:app",
+				"--reload",
+				"--host",
+				"127.0.0.1",
+				"--port",
+				"8000"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Streamlit app",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"streamlit",
+				"run",
+				"app.py",
+				"--server.address",
+				"127.0.0.1",
+				"--server.port",
+				"8501"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,160 @@
+{
+  "tickets": [
+    {
+      "ticket_id": "T-1001",
+      "subject": "Password reset email not received",
+      "description": "User requests password reset but email is not delivered. Spam folder checked; no reset email arrives.",
+      "resolution_notes": "Confirmed the account email address, corrected a stale email alias, and resent the reset link. User confirmed receipt.",
+      "category": "Authentication",
+      "tags": [
+        "password reset",
+        "email",
+        "login"
+      ],
+      "created_date": "2025-01-12"
+    },
+    {
+      "ticket_id": "T-1002",
+      "subject": "Users cannot sign in after SSO configuration change",
+      "description": "Several users receive an authentication error after an identity provider setting was changed.",
+      "resolution_notes": "Reverted the incorrect SSO callback URL and validated login with the affected users.",
+      "category": "Authentication",
+      "tags": [
+        "SSO",
+        "login",
+        "identity provider"
+      ],
+      "created_date": "2025-02-03"
+    },
+    {
+      "ticket_id": "T-1003",
+      "subject": "Revenue dashboard chart is blank",
+      "description": "Revenue tab loads but the chart area is empty with no visible error. Other dashboard tabs load.",
+      "resolution_notes": "Found a date filter outside the available data range. Reset the date range and refreshed the dashboard cache.",
+      "category": "Dashboard",
+      "tags": [
+        "revenue",
+        "chart",
+        "blank dashboard"
+      ],
+      "created_date": "2025-02-18"
+    },
+    {
+      "ticket_id": "T-1004",
+      "subject": "Dashboard visualization missing after filter update",
+      "description": "A bar chart disappears after a user selects a restrictive filter combination.",
+      "resolution_notes": "Cleared the incompatible filter and restored the default date range. Added a note explaining supported filter combinations.",
+      "category": "Dashboard",
+      "tags": [
+        "visualization",
+        "filters",
+        "chart"
+      ],
+      "created_date": "2025-03-01"
+    },
+    {
+      "ticket_id": "T-1005",
+      "subject": "Duplicate subscription charge on monthly invoice",
+      "description": "Customer's payment statement shows two subscription charges for the same billing period.",
+      "resolution_notes": "Payment processor showed one settled charge and one authorization. The authorization expired; confirmed no second capture occurred.",
+      "category": "Billing",
+      "tags": [
+        "duplicate charge",
+        "subscription",
+        "payment"
+      ],
+      "created_date": "2025-03-12"
+    },
+    {
+      "ticket_id": "T-1006",
+      "subject": "Customer billed twice after retry",
+      "description": "A payment retry appears to have created duplicate monthly subscription payments.",
+      "resolution_notes": "Matched processor transaction IDs, voided the duplicate captured payment, and verified the ledger. Escalated the idempotency defect to engineering.",
+      "category": "Billing",
+      "tags": [
+        "billing",
+        "duplicate payment",
+        "retry"
+      ],
+      "created_date": "2025-04-05"
+    },
+    {
+      "ticket_id": "T-1007",
+      "subject": "Scheduled report arrives late",
+      "description": "A scheduled analytics report was delivered several hours after its configured delivery time.",
+      "resolution_notes": "Checked the job queue and found a temporary backlog. Reprocessed the failed job and monitored the next scheduled run.",
+      "category": "Reporting",
+      "tags": [
+        "scheduled report",
+        "job queue",
+        "delay"
+      ],
+      "created_date": "2025-04-14"
+    },
+    {
+      "ticket_id": "T-1008",
+      "subject": "CSV export fails for large reports",
+      "description": "Exporting a large analytics report fails before the download begins.",
+      "resolution_notes": "Reduced the selected date range to confirm a row-limit issue and recommended asynchronous export. Logged a product issue for clearer error messaging.",
+      "category": "Export",
+      "tags": [
+        "CSV",
+        "export",
+        "large report"
+      ],
+      "created_date": "2025-05-09"
+    },
+    {
+      "ticket_id": "T-1009",
+      "subject": "Dashboard data appears stale",
+      "description": "Charts show yesterday's figures even though the source data has been updated.",
+      "resolution_notes": "Verified the ingestion job completed, invalidated the dashboard cache, and confirmed the latest figures appeared.",
+      "category": "Data freshness",
+      "tags": [
+        "dashboard",
+        "cache",
+        "stale data"
+      ],
+      "created_date": "2025-05-17"
+    },
+    {
+      "ticket_id": "T-1010",
+      "subject": "API token rejected by reporting endpoint",
+      "description": "Requests to the reporting API return unauthorized after an API token was rotated.",
+      "resolution_notes": "Updated the stored token in the integration settings and verified the request with a least-privilege service account.",
+      "category": "Integrations",
+      "tags": [
+        "API",
+        "token",
+        "unauthorized"
+      ],
+      "created_date": "2025-06-02"
+    },
+    {
+      "ticket_id": "T-1011",
+      "subject": "Webhook delivery retries repeatedly",
+      "description": "Webhook notifications are retried because the receiver returns intermittent 5xx responses.",
+      "resolution_notes": "Confirmed receiver errors from delivery logs, coordinated with the receiver owner, and replayed failed events after recovery.",
+      "category": "Integrations",
+      "tags": [
+        "webhook",
+        "retry",
+        "5xx"
+      ],
+      "created_date": "2025-06-19"
+    },
+    {
+      "ticket_id": "T-1012",
+      "subject": "Unable to invite a new team member",
+      "description": "Admin receives an error when inviting another user to the workspace.",
+      "resolution_notes": "The workspace had reached its seat limit. Adjusted the subscription after customer approval and resent the invitation.",
+      "category": "Account management",
+      "tags": [
+        "invite",
+        "workspace",
+        "seat limit"
+      ],
+      "created_date": "2025-07-03"
+    }
+  ]
+}
